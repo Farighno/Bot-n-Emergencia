@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>	
+	<meta charset="UTF-8">
+  </head>
+  {% block info %}
+	<form method="POST" action="/tels">
+		{{form.csrf_token}}
+		<p>Tel 1 {{form.tel1}}</p>
+		<p>Tel 2 {{form.tel2}}</p>
+	        <p>Tel 3 {{form.tel3}}</p>
+		<p>Tel 4 {{form.tel4}}</p>
+		<p>Tel 5 {{form.tel5}}</p>
+		<input type="submit" value="Registrar">
+	</form>
+  {% endblock info %}
+</html>
