@@ -2,7 +2,7 @@ import requests
 from twilio.rest import TwilioRestClient
 import pyrebase
 
-key="AIzaSyAehySO7gAH_TXsVITZm3uQuMyHPiWSgqM"
+key="AIzaSyA2Tz2CziRNMG-DaKDHBf2F_QsQHtW2kd8"
 dataURL="https://bot-emergencia.firebaseio.com/"
 authDomain= "bot-emergencia.firebaseapp.com"
 storage= "bot-emergenia.appspot.com"
@@ -15,14 +15,18 @@ account_sid = "ACe1a53fc2c6ea19685bd06a504ed0a266"
 auth_token = "5b98e604ad2ba89c63b155f23a0fd173"
 client = TwilioRestClient(account_sid, auth_token)
 
-def mapa(self):
-    Ubicacion=requests.post("https://www.googleapis.com/geolocation/v1/geolocate?",params={"key":self.key}).json()
-    q=str([Ubicacion["location"]["lat"],Ubicacion["location"]["lng"]])
-    q=q[1:-1]
-    parametros={"key":self.key,"q":q}
-    Mapa=requests.post("https://www.google.com/maps/embed/v1/place?",params=parametros)
+def mapa():
+    Ubicacion=requests.post("https://www.googleapis.com/geolocation/v1/geolocate?",params={"key":apiKey}).json()
+    latitud = (Ubicacion["location"]["lat"])
+    longitud = (Ubicacion["location"]["lng"])
+    parameters = {"latlng":str(latitud) + ", " + str(longitud), "key":key}
+    resultado = requests.get("https://maps.googleapis.com/maps/api/geocode/json?", params=parameters).json()
+    listado = resultado["results"][0]
+    direccion = listado["formatted_address"]
+    return (direccion)
 
 def mandaMensaje(user):
+    direccion=mapa()
     correo=user['email']
     correo=correo.replace("@", "")
     correo=correo.replace(".", "")
@@ -33,7 +37,7 @@ def mandaMensaje(user):
         telefonos = db.child(correo).child("telefonos").child(tel).get(user['idToken'])   
         telefonos = str ("+52"+telefonos.val())
         if len (telefonos)==13:
-            message=client.sms.messages.create(body ="¡Me siento mal!",to = telefonos ,from_= "+13346414058")
+            message=client.sms.messages.create(body = "¡Ayuda!, estoy en "+direccion,to = telefonos ,from_= "+13346414058")
 
 def registro(email, password):
     usuario=auth.create_user_with_email_and_password(email, password)

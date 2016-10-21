@@ -5,7 +5,8 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>HelpX Register</title>
+  <title>HelpX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -20,50 +21,34 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
 	
 <body>
-<header class="header-1">
+<header class="ppolice">
 	<nav class="nav-1">
 		<div id="back">
-		<a href="/" id="no-decore"><img class="back-img" src="{{ url_for('static', filename='css/images/back.png') }}"/>
-		</a>	
+			<a href="#" id="no-decore"><img class="back-img" src="{{ url_for('static', filename='css/images/back.png') }}"/></a>	
+		</div>
+		<div id="info">
+			<a href="#"><h3 class="testmedia">police help.</h3></a>
+		</div>
+		<div id="set">
+			<a href="#" id="no-decore"><img class="set-img" src="{{ url_for('static', filename='css/images/settings.png') }}"/></a>	
 		</div>
 		
-		<div id="info">
-			<a href="#"><h3>Telephones</h3></a>
-		</div>
 	</nav>
-	<section>
-	 <div id="moto-cont">
-	 	<img src="{{ url_for('static', filename='css/images/moto.png') }}"/>
-	 </div>
-	 <h3 id="center-text">Emergency Phone Numbers.</h3>
-	</section>
-	  <div class="container-a">
-	  <div class="login-a">
-	      <form method="post">
-	      	{{form.csrf_token}}
-	        <input type="form" name="tel1" placeholder="Phone 1" required="required" class="input-txt" />
-	          <input type="form" name="tel2" placeholder="Phone 2" class="input-txt" />
-	          	<input type="form" name="tel3" placeholder="Phone 3" class="input-txt" />
-	          		<input type="form" name="tel4" placeholder="Phone 4" class="input-txt" />
-	          			<input type="form" name="tel5" placeholder="Phone 5" class="input-txt" />
-	           <div class="container-register-butt">
-	           		<button type="submit" class="register-button">Register now</button>
-	           	</div>
-	      </form>
-	  </div>
-	  
-	  	</div>
+	<div id="container-switch-1">
+		<label class="switch-1">
+	  	<input type="checkbox">
+	  	<div class="slider-1 round-1"></div>
+		</label>
+	</div>
 </header>
 
 </body>

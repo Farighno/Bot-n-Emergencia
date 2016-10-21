@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>HelpX Register</title>
+  <title>HelpX Login</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -39,32 +39,61 @@
 		</div>
 		
 		<div id="info">
-			<a href="#"><h3>Telephones</h3></a>
+			<a href="#"><h3>Login</h3></a>
 		</div>
 	</nav>
 	<section>
 	 <div id="moto-cont">
-	 	<img src="{{ url_for('static', filename='css/images/moto.png') }}"/>
+	 	<img src="{{ url_for('static', filename='css/images/moto.png') }}"
+	 	
+	 	
 	 </div>
-	 <h3 id="center-text">Emergency Phone Numbers.</h3>
+	 <h3 id="center-text">Login or create your account.</h3>
 	</section>
+	
+	
 	  <div class="container-a">
 	  <div class="login-a">
 	      <form method="post">
-	      	{{form.csrf_token}}
-	        <input type="form" name="tel1" placeholder="Phone 1" required="required" class="input-txt" />
-	          <input type="form" name="tel2" placeholder="Phone 2" class="input-txt" />
-	          	<input type="form" name="tel3" placeholder="Phone 3" class="input-txt" />
-	          		<input type="form" name="tel4" placeholder="Phone 4" class="input-txt" />
-	          			<input type="form" name="tel5" placeholder="Phone 5" class="input-txt" />
-	           <div class="container-register-butt">
-	           		<button type="submit" class="register-button">Register now</button>
-	           	</div>
+	      {{form.csrf_token}}
+	        <input type="form" name="nombres" placeholder="Username" required="required" class="input-txt" />
+	          <input type="form" name="identificadores" placeholder="Password" required="required" class="input-txt" />
+	          <div class="login-footer">
+	             <a href="#" class="lnk">
+	              <span class="icon icon--min"></span> 
+	              I've forgot my password
+	            </a>
+	            <button type="submit" class="btn btn--right" >Sign in  </button>
+	          </div>
 	      </form>
 	  </div>
 	  
+	  <section>
+	  	<div id="cont-linea">
+	  		<h4>---------  Or login with  --------</h4>
 	  	</div>
+	  	<div id="cont-social">
+		  	<div class="social">
+		  		<a href="#"><img class="social-img" src="{{ url_for('static', filename='css/images/fb.png') }}"/>
+		  		</a>
+		  	</div>
+		  	<div class="social">
+		  		<a  href="#"><img class="social-img" src="{{ url_for('static', filename='css/images/gl.png') }}"/>
+		  		</a>
+		  	</div>
+	  		<div class="social">
+	  			<a href="#"><img class="social-img" src="{{ url_for('static', filename='css/images/tw.png') }}"/>
+	  			</a>
+	  		</div>
+	  	</div>
+	  	<div id="cont-last-log">
+	  		<h3 id="center-text-1">Don't have an account? Register now!</h3>
+	  	</div>
+	  	<div class="container-index-butt">
+	  		<button class="index-button" onclick="location.href='/main'">Register now</button>
+	  	</div>
+	  </section>
+	</div>
 </header>
-
 </body>
 </html>
